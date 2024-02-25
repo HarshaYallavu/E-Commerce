@@ -3,26 +3,26 @@ import { Link } from "react-router-dom";
 import React from "react";
 import Rating from "./Rating";
 
-const Product = (props) => {
+const Product = ({ product }) => {
   return (
     <>
       <Card className="my-3 p-3 rounded">
-        <Link to={`./product/${props.product._id}`}>
-          <Card.Img src={`../${props.product.image}`} variant="top"></Card.Img>
+        <Link to={`./product/${product._id}`}>
+          <Card.Img src={product.image} variant="top"></Card.Img>
         </Link>
         <Card.Body>
-          <Link to={`./product/${props.product._id}`}>
+          <Link to={`./product/${product._id}`}>
             <Card.Title as="div" className="product-title ">
-              <strong>{props.product.name}</strong>
+              <strong>{product.name}</strong>
             </Card.Title>
           </Link>
           <Card.Text as="div">
             <Rating
-              value={props.product.rating}
-              text={`${props.product.numReviews} reviews`}
+              value={product.rating}
+              text={`${product.numReviews} reviews`}
             ></Rating>
           </Card.Text>
-          <Card.Text as="h3">${props.product.price}</Card.Text>
+          <Card.Text as="h3">${product.price}</Card.Text>
         </Card.Body>
       </Card>
     </>
